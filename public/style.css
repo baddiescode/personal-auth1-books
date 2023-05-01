@@ -1,0 +1,31 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-image: url("img/book.jpg");
+  background-size: cover;
+  color: white;
+  font-family: 'Sigmar', cursive;
+}
+
+.jumbotron{
+  background-color: rgba(255, 0, 0, 0.47);
+}
+
+.container{
+  background-color: rgba(255, 0, 0, 0.47);
+}
+
+h1{
+  font-family: 'Sigmar', cursive;
+}
+
+img{
+  height: 200px;
+}
+
+.row{
+  background-color: rgba(255, 0, 0, 0.47);
+}
+.messages{
+  text-decoration: none;
+}
