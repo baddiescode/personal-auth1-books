@@ -26,7 +26,8 @@ Array.from(thumbUp).forEach(function(element) {
 });
 
 Array.from(trash).forEach(function(element) {
-      element.addEventListener('click', function(){
+      element.addEventListener('click', function(e){
+        const _id = e.target.dataset.id
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const msg = this.parentNode.parentNode.childNodes[3].innerText
         fetch('messages', {
@@ -35,8 +36,7 @@ Array.from(trash).forEach(function(element) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'name': name,
-            'msg': msg
+            _id
           })
         }).then(function (response) {
           window.location.reload()

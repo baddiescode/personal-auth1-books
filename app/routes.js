@@ -1,3 +1,4 @@
+const ObjectId = require('mongodb').ObjectId
 module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
@@ -37,6 +38,7 @@ module.exports = function(app, passport, db) {
     })
 
     app.put('/messages', (req, res) => {
+      const _id = ObjectId(req.body._id)
       db.collection('messages')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
         $set: {
@@ -52,7 +54,8 @@ module.exports = function(app, passport, db) {
     })
 
     app.delete('/messages', (req, res) => {
-      db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+      const _id = ObjectId(req.body._id)
+      db.collection('messages').findOneAndDelete({_id}, (err, result) => {
         if (err) return res.send(500, err)
         res.send('Message deleted!')
       })
